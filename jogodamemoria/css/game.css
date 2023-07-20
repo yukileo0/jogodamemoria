@@ -1,0 +1,83 @@
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-image: url('../img/fundo.jpg');
+    background-size: cover;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px 50px;
+  }
+  
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2em;
+    width: 100%;
+    max-width: 800px;
+    padding: 30px;
+    margin: 0 0 30px;
+    border-radius: 5px;
+  }
+  
+  .grid {
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr */
+    grid-template-columns: repeat(7, 1fr); /* GRID COM 7 colunas iguais */
+    gap: 15px; /* separação entre os elementos da grid */
+    width: 100%; /* largura que irá ocupar */
+    max-width: 1200px; /* tamanho máximo da grid */
+    margin: 0 auto; /* margem automatica */
+  }
+  
+  .card {
+    aspect-ratio: 3/4;  /* formato do tamanho 3 partes de 4 na largura e altura */
+    width: 100%;
+    border-radius: 5px;
+    position: relative; /* posiciona no início de tudo da posição do pai. */
+    transition: all 400ms ease; /* tempo de duração da rotação */
+    transform-style: preserve-3d; /* preserva o efeito de 3d da carta */
+    background-color: #ccc;
+    background-repeat: no-repeat; /**/
+  
+  }
+  
+  .face {
+    width: 100%;
+    height: 100%;
+    position: absolute; /* respeita a posição de seu pai */
+    background-size: cover;  /* aumentar para ocupar tudo */
+    background-position: center; /* centralizar a imagem dentro do card */
+    border: 5px solid #00b5cc;
+    border-radius: 5px;
+    transition: all 400ms ease;
+  }
+  
+  .front {
+    transform: rotateY(180deg);  /* deixar de constas */
+  }
+  
+  .back {
+    background-image: url('../img/back.jpg');
+    backface-visibility: hidden;  /* deixar a parte das costas escondido */
+    background-size: cover;
+  }
+  
+  .revela-card {
+    transform: rotateY(180deg);
+  }
+  
+  .disabilitar-card {
+    filter: saturate(0);
+    opacity: 0.5;
+  }
+  
+  @media screen and (max-width:920px) {
+    .grid {
+      grid-template-columns: repeat(5, 1fr);
+  
+    }
+  }
